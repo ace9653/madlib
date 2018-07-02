@@ -8,7 +8,7 @@ class Card extends Component {
         super()
 
         this.state = {
-            color: 'blue',
+            color: '',
             pluralNoun: ''
         }
 
@@ -16,24 +16,20 @@ class Card extends Component {
     }
 
     handleInputChange (event) {
-        //console.log('this is the value',event.target.value);
-       this.setState({color: event.target.value})
+       this.setState({ [event.target.name]: event.target.value})
+       //Just to check to see if it works
+       //console.log(event.target.name)
     }
 
     render() {
         
-        return (
-            <div className = 'card'>
-                <h1>{this.state.color}</h1>
-                <input value={this.state.color} onChange={(event) =>this.handleInputChange(event)}/>
-            </div>
-        )
 
+//<h1>{this.state.pluralNoun}</h1>
         return (
             <div className ='card'>
                 <h1>{this.state.color}</h1>
-                { Input('Color') }
-                { Input('Plural Noun') }
+                { Input('Color', this.state.color, this.handleInputChange, 'color') }
+                { Input('Plural Noun', this.state.pluralNoun, this.handleInputChange, 'pluralNoun') }
             </div>
         )
     }
