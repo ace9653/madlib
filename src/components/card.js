@@ -1,3 +1,18 @@
+/*
+-------------------------------------------------------
+-                                                     -
+-                    Notes                            -
+-                                                     -
+- I. Handle Input Change                              -
+-   A. Redundancy                                     -
+-     1.Setting Handle Input Change as a parameter    -
+-       for an Input function is pointless            -
+-     2.Handle Input Change is super repetitive,      -
+-       probably a more efficient way to do it.       - 
+-                                                     -
+-------------------------------------------------------
+
+*/
 import React, { Component } from 'react';
 
 import Input from './input';
