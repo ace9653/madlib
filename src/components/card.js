@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Input from './input';
+import Content from "./content";
 
 class Card extends Component {
 
@@ -31,8 +32,8 @@ class Card extends Component {
             {title: 'Adjective', state: this.state.adjectiveOne, name: 'adjectiveOne'},
             {title: 'Celebrity', state: this.state.celebOne, name: 'celebOne'},
             
-            {title: 'Adjective', state: this.state.adjectiveTwo, name: 'nounOne'},
-            {title: 'Noun', state: this.state.nounOne, name: 'adjectiveTwo'},
+            {title: 'Adjective', state: this.state.adjectiveTwo, name: 'adjectiveTwo'},
+            {title: 'Noun', state: this.state.nounOne, name: 'nounOne'},
             {title: 'Number', state: this.state.numberOne, name: 'numberOne'},
             {title: 'Number', state: this.state.numberTwo, name: 'numberTwo'},
             
@@ -47,7 +48,7 @@ class Card extends Component {
             {title: 'Adjective', state: this.state.adjectiveFive, name: 'adjectiveFive'},
             
         ]
-
+//trello.com
 //<h1>{this.state.pluralNoun}</h1>
         return ( 
             
@@ -59,6 +60,7 @@ class Card extends Component {
                 {
                     inputData.map(data => Input( (data), this.handleInputChange))
                 }
+                <Content data={this.state}/>
                 </div>
         )
     }
