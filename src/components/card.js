@@ -12,16 +12,35 @@ class Card extends Component {
             color: '',
             pluralNoun: '',
             adjectiveOne: '',
-            celebOne: ''
+            celebOne: '',
+            adjectiveTwo: '',
+            nounOne:'',
+            numberOne:'',
+            numberTwo:'',
+            adjectiveThree:'',
+            celebTwo:'',
+            celebThree:'',
+            adjectiveFour:'',
+            nounThree:'',
+            celebFour:'',
+            adjectiveFive:'',
+            contentVisible: false
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleFormSubmit = this.handleFormSubmit.bind(this);
     }
 
     handleInputChange (event) {
        this.setState({ [event.target.name]: event.target.value})
        //Just to check to see if it works
        //console.log(event.target.name)
+    }
+
+    handleFormSubmit (event) {
+        console.log("Submitting Form")
+        event.preventDefault()
+        this.setState({contentVisible: !this.state.contentVisible});
     }
 
     render() {
@@ -56,12 +75,19 @@ class Card extends Component {
             
             
             
-            <div className ='card'>
+            <form onSubmit ={this.handleFormSubmit} className ='card'>
+                <div className = "card__inputs">
                 {
                     inputData.map(data => Input( (data), this.handleInputChange))
                 }
-                <Content data={this.state}/>
                 </div>
+                <button type='submit'>
+                    {!this.state.contentVisible ? 'Generate Madlibs' : 'Clear Madlibs'}
+                </button>
+                {
+                    this.state.contentVisible ? <Content data={this.state}/> : ''
+                }
+                </form>
         )
     }
 }
